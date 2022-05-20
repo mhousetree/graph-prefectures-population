@@ -11,8 +11,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "sass": "^1.52.0",
-    "vue": "^3.2.33",
-    "vue-material-design-icons": "^5.0.0"
+    "vue": "^3.2.33"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
@@ -24,6 +23,7 @@
     "jsdom": "^19.0.0",
     "prettier": "^2.5.1",
     "vite": "^2.9.5",
-    "vitest": "^0.9.3"
+    "vitest": "^0.9.3",
+    "vue-material-design-icons": "^5.0.0"
   }
 }
