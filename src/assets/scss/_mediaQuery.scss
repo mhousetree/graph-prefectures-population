@@ -1,0 +1,14 @@
+$tablet: 600px;
+$pc: 1025px;
+
+@mixin mq_tablet {
+    @media screen and (min-width: ($tablet)) {
+        @content;
+    }
+}
+
+@mixin mq_pc {
+    @media screen and (min-width: ($pc)) {
+        @content;
+    }
+}
