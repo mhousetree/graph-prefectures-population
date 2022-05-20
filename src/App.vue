@@ -1,10 +1,13 @@
 <script setup>
 import RootHeader from "./components/organisms/RootHeader.vue";
+import PrefectureCheckboxes from "./components/organisms/PrefectureCheckboxes.vue";
 </script>
 
 <template>
   <RootHeader title="Title" />
-  <main></main>
+  <main>
+    <PrefectureCheckboxes />
+  </main>
 </template>
 
 <style>
