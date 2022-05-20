@@ -1,5 +1,6 @@
 <script setup>
 import AlternativeCheckbox from "../atoms/AlternativeCheckbox.vue";
+import DisplayNoneCheckbox from "../atoms/DisplayNoneCheckbox.vue";
 defineProps({
   id: {
     type: Number,
@@ -14,7 +15,7 @@ defineProps({
 
 <template>
   <div>
-    <input type="checkbox" :id="id" :value="id" />
+    <DisplayNoneCheckbox :id="id" />
     <label :for="id">
       <AlternativeCheckbox />
       {{ label }}
@@ -25,9 +26,5 @@ defineProps({
 <style scoped lang="scss">
 label {
   display: flex;
-}
-
-input {
-  display: none;
 }
 </style>
