@@ -1,9 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import { debugLog } from "@/utils/log.js";
+
 import LabeledCheckbox from "../morecules/LabeledCheckbox.vue";
 
 const prefInfos = ref([]);
+const checkedPrefs = ref([]);
 
 const getPrefectures = async () => {
   const response = await axios.get(
@@ -17,6 +20,17 @@ const getPrefectures = async () => {
   return response.data.result;
 };
 
+const updateEvent = (data) => {
+  if (!checkedPrefs.value.includes(data)) {
+    checkedPrefs.value.push(data);
+  } else {
+    const index = checkedPrefs.value.indexOf(data);
+    checkedPrefs.value.splice(index, 1);
+  }
+
+  debugLog(checkedPrefs.value);
+};
+
 onMounted(async () => {
   prefInfos.value = await getPrefectures();
 });
@@ -25,9 +39,11 @@ onMounted(async () => {
 <template>
   <LabeledCheckbox
     v-for="prefInfo in prefInfos"
+    name="checkedPrefs"
     :key="prefInfo.prefCode"
     :id="prefInfo.prefCode"
     :label="prefInfo.prefName"
+    @change="updateEvent"
   />
 </template>
 
