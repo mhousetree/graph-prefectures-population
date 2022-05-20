@@ -1,24 +1,56 @@
-<script setup>
-import CheckboxMarkedIcon from "vue-material-design-icons/CheckBoxMarked.vue";
-import CheckboxBlankOutlineIcon from "vue-material-design-icons/CheckBoxBlankOutline.vue";
-</script>
-
 <template>
-  <CheckboxMarkedIcon :title="'checked checkbox for ' + label" />
-  <CheckboxBlankOutlineIcon :title="'blank checkbox for ' + label" />
+  <svg
+    class="blank"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="0.5"
+      y="0.5"
+      width="15"
+      height="15"
+      fill="white"
+      stroke="#C8C8C8"
+    />
+  </svg>
+  <svg
+    class="checked"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="0.5"
+      y="0.5"
+      width="15"
+      height="15"
+      fill="white"
+      stroke="#C8C8C8"
+    />
+    <path
+      d="M2.5 7.5L6.68992 12.621L13.1899 2.62102"
+      stroke="currentColor"
+      stroke-width="2"
+    />
+  </svg>
 </template>
 
 <style scoped lang="scss">
-.checkbox-marked-icon {
+.checked {
   display: none;
 }
 
 input:checked + label {
-  .checkbox-blank-outline-icon {
+  .blank {
     display: none;
   }
-  .checkbox-marked-icon {
-    display: inline;
+  .checked {
+    display: block;
   }
 }
 </style>
