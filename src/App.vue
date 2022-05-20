@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import RootHeader from "./components/organisms/RootHeader.vue";
+</script>
 
 <template>
-  <header></header>
+  <RootHeader title="Title" />
   <main></main>
 </template>
 
@@ -11,7 +13,6 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
 
   font-weight: normal;
 }
