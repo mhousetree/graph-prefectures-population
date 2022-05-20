@@ -26,5 +26,7 @@ defineProps({
 <style scoped lang="scss">
 label {
   display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 </style>
