@@ -32,10 +32,24 @@ const updateValue = (e) => {
 </template>
 
 <style scoped lang="scss">
+div {
+  width: fit-content;
+}
+
 label {
   display: flex;
   align-items: center;
   gap: 0.5em;
+  padding: 0 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 0.2s;
+
+  &:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 3px 5px #cccc;
+    transform: translateY(-1px);
+  }
 }
 
 input {
