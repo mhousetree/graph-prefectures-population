@@ -39,7 +39,6 @@ onMounted(async () => {
 <template>
   <LabeledCheckbox
     v-for="prefInfo in prefInfos"
-    name="checkedPrefs"
     :key="prefInfo.prefCode"
     :id="prefInfo.prefCode"
     :label="prefInfo.prefName"

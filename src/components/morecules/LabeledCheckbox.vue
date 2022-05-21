@@ -11,9 +11,6 @@ defineProps({
     type: String,
     required: true,
   },
-  name: {
-    type: String,
-  },
 });
 
 const emit = defineEmits(["change"]);
@@ -26,13 +23,7 @@ const updateValue = (e) => {
 <template>
   <div>
     <!-- <DisplayNoneCheckbox :id="id" /> -->
-    <input
-      type="checkbox"
-      :id="id"
-      :value="id"
-      :name="name"
-      @change="updateValue"
-    />
+    <input type="checkbox" :id="id" :value="id" @change="updateValue" />
     <label :for="id">
       <AlternativeCheckbox />
       {{ label }}
