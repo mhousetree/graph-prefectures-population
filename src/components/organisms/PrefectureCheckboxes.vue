@@ -42,13 +42,23 @@ onMounted(async () => {
 </script>
 
 <template>
-  <LabeledCheckbox
-    v-for="prefInfo in prefInfos"
-    :key="prefInfo.prefCode"
-    :id="prefInfo.prefCode"
-    :label="prefInfo.prefName"
-    @change="updateEvent"
-  />
+  <section>
+    <LabeledCheckbox
+      v-for="prefInfo in prefInfos"
+      :key="prefInfo.prefCode"
+      :id="prefInfo.prefCode"
+      :label="prefInfo.prefName"
+      @change="updateEvent"
+    />
+  </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+section {
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr)); */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+</style>
