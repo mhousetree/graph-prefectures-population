@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import store from "@/store";
+
 import { debugLog } from "@/utils/log.js";
 
 import LabeledCheckbox from "../morecules/LabeledCheckbox.vue";
@@ -29,6 +31,9 @@ const updateEvent = (data) => {
   }
 
   debugLog(checkedPrefs.value);
+
+  store.setCheckedPrefs(checkedPrefs.value);
+  store.setPopulationByPrefCode(data);
 };
 
 onMounted(async () => {
