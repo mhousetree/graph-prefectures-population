@@ -1,13 +1,9 @@
 <script setup>
-import RootHeader from "./components/organisms/RootHeader.vue";
-import PrefectureCheckboxes from "./components/organisms/PrefectureCheckboxes.vue";
+import TopPage from "./components/pages/TopPage.vue";
 </script>
 
 <template>
-  <RootHeader title="Title" />
-  <main>
-    <PrefectureCheckboxes />
-  </main>
+  <component :is="TopPage" />
 </template>
 
 <style>
@@ -18,9 +14,5 @@ import PrefectureCheckboxes from "./components/organisms/PrefectureCheckboxes.vu
   margin: 0 auto;
 
   font-weight: normal;
-}
-
-header {
-  line-height: 1.5;
 }
 </style>
