@@ -90,8 +90,21 @@ const chartOptions = computed(() => {
 <template>
   <section>
     <Chart v-if="checkedPrefs.length !== 0" :options="chartOptions"></Chart>
-    <p v-else>チェックするとここにグラフが表示されます</p>
+    <p v-else class="graph-placeholder">
+      チェックするとここにグラフが表示されます
+    </p>
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+section {
+  margin-top: 1rem;
+}
+p.graph-placeholder {
+  text-align: center;
+  padding: 3rem 0;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  border: 1px dashed #ccc;
+}
+</style>
