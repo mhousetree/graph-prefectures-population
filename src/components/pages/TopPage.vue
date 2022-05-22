@@ -54,5 +54,3 @@ onMounted(async () => {
     />
   </WithHeader>
 </template>
-
-<style></style>
