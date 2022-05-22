@@ -5,7 +5,7 @@ import WithHeader from "@/components/templates/WithHeader.vue";
 import PrefectureCheckboxes from "@/components/organisms/PrefectureCheckboxes.vue";
 import PopulationGraph from "@/components/organisms/PopulationGraph.vue";
 
-import { getPrefectures } from "@/utils/apiFetch";
+import { getPrefectures } from "@/api/apiClient";
 import { debugLog } from "@/utils/log";
 
 const pageTitle = "都道府県別の総人口";
