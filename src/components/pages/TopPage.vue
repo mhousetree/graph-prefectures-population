@@ -1,28 +1,17 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import axios from "axios";
 
 import WithHeader from "@/components/templates/WithHeader.vue";
 import PrefectureCheckboxes from "@/components/organisms/PrefectureCheckboxes.vue";
 import PopulationGraph from "@/components/organisms/PopulationGraph.vue";
+
+import { getPrefectures } from "@/utils/apiFetch";
 import { debugLog } from "@/utils/log";
 
 const pageTitle = "都道府県別の総人口";
 
 const prefNameByPrefCode = ref({});
 const checkedPrefs = ref([]);
-
-const getPrefectures = async () => {
-  const response = await axios.get(
-    import.meta.env.VITE_API_URL + "/api/v1/prefectures",
-    {
-      headers: {
-        "X-API-KEY": import.meta.env.VITE_API_KEY,
-      },
-    }
-  );
-  return response.data.result;
-};
 
 const setPrefNameByPrefCode = async () => {
   const response = await getPrefectures();

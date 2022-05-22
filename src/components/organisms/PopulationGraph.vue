@@ -1,8 +1,9 @@
 <script setup>
 import { ref, toRefs, watch } from "vue";
 import { computed } from "@vue/reactivity";
-import axios from "axios";
 import { Chart } from "highcharts-vue";
+
+import { getTotalPopulation } from "@/utils/apiFetch";
 
 import colors from "@/utils/colors";
 
@@ -21,22 +22,6 @@ const populationByPrefCode = ref({});
 const series = ref([]);
 
 const { checkedPrefs } = toRefs(props);
-
-const getTotalPopulation = async (prefCode) => {
-  const response = await axios.get(
-    import.meta.env.VITE_API_URL + "/api/v1/population/composition/perYear",
-    {
-      params: {
-        prefCode: prefCode,
-        cityCode: "-",
-      },
-      headers: {
-        "X-API-KEY": import.meta.env.VITE_API_KEY,
-      },
-    }
-  );
-  return response.data.result.data.find((v) => v.label === "総人口").data;
-};
 
 const updatePopulationByPrefCode = async () => {
   for (const prefCode of checkedPrefs.value) {
