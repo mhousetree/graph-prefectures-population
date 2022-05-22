@@ -1,5 +1,5 @@
 <script setup>
-import H1Heading from "../atoms/H1Heading.vue";
+import CenteredH1 from "../atoms/CenteredH1.vue";
 defineProps({
   title: {
     type: String,
@@ -10,12 +10,6 @@ defineProps({
 
 <template>
   <header>
-    <H1Heading :content="title" />
+    <CenteredH1 :content="title" />
   </header>
 </template>
-
-<style scoped lang="scss">
-header {
-  text-align: center;
-}
-</style>
