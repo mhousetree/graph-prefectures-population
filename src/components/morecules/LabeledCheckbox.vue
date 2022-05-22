@@ -14,6 +14,10 @@ defineProps({
     type: String,
     required: true,
   },
+  color: {
+    type: String,
+    required: true,
+  },
 });
 
 const emit = defineEmits(["change"]);
@@ -32,7 +36,9 @@ const updateValue = (e) => {
     />
     <label :for="checkboxId">
       <AlternativeCheckbox />
-      {{ label }}
+      <span>
+        {{ label }}
+      </span>
     </label>
   </div>
 </template>
@@ -40,6 +46,7 @@ const updateValue = (e) => {
 <style scoped lang="scss">
 div {
   width: fit-content;
+  color: v-bind(color);
 }
 
 label {
@@ -55,6 +62,14 @@ label {
     border: 1px solid transparent;
     box-shadow: 0 3px 5px #cccc;
     transform: translateY(-1px);
+  }
+}
+
+input:checked + label {
+  border: 1px solid currentColor;
+  background-color: currentColor;
+  span {
+    color: white;
   }
 }
 </style>

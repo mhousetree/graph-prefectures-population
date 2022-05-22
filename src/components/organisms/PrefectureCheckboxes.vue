@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 import LabeledCheckbox from "@/components/morecules/LabeledCheckbox.vue";
+import colors from "@/utils/colors";
 
 const checkedPrefs = ref([]);
 
@@ -34,6 +35,7 @@ const updateEvent = (data) => {
       :checkboxId="prefCode"
       :checkboxValue="prefCode"
       :label="prefName"
+      :color="colors[prefCode]"
       @change="updateEvent"
     />
   </section>
