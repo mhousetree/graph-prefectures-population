@@ -25,7 +25,7 @@ const updateCheckedPrefs = (data) => {
   checkedPrefs.value = data;
 };
 
-onMounted(async () => {
+onMounted(() => {
   setPrefNameByPrefCode();
   document.title = pageTitle;
 });
