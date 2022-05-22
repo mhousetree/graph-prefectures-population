@@ -42,12 +42,12 @@ onMounted(async () => {
 <template>
   <WithHeader>
     <PrefectureCheckboxes
-      :prefNameByPrefCode="this.prefNameByPrefCode"
+      :prefNameByPrefCode="prefNameByPrefCode"
       @updateCheckedPrefs="updateCheckedPrefs"
     />
     <PopulationGraph
-      :prefNameByPrefCode="this.prefNameByPrefCode"
-      :checkedPrefs="this.checkedPrefs"
+      :prefNameByPrefCode="prefNameByPrefCode"
+      :checkedPrefs="checkedPrefs"
     />
   </WithHeader>
 </template>
