@@ -1,7 +1,6 @@
 <script setup>
 import AlternativeCheckbox from "../atoms/AlternativeCheckbox.vue";
-// TODO: コンポーネントごと削除するか、孫コンポーネントから値を取ってくる
-// import DisplayNoneCheckbox from "../atoms/DisplayNoneCheckbox.vue";
+import DisplayNoneCheckbox from "../atoms/DisplayNoneCheckbox.vue";
 defineProps({
   checkboxId: {
     type: String,
@@ -20,17 +19,16 @@ defineProps({
 const emit = defineEmits(["change"]);
 
 const updateValue = (e) => {
-  emit("change", e.target.value);
+  console.log(e);
+  emit("change", e);
 };
 </script>
 
 <template>
   <div>
-    <!-- <DisplayNoneCheckbox :id="id" /> -->
-    <input
-      type="checkbox"
-      :id="checkboxId"
-      :value="checkboxValue"
+    <DisplayNoneCheckbox
+      :checkboxId="checkboxId"
+      :checkboxValue="checkboxValue"
       @change="updateValue"
     />
     <label :for="checkboxId">
@@ -59,9 +57,5 @@ label {
     box-shadow: 0 3px 5px #cccc;
     transform: translateY(-1px);
   }
-}
-
-input {
-  display: none;
 }
 </style>
