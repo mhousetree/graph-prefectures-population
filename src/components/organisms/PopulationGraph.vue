@@ -3,7 +3,7 @@ import { ref, toRefs, watch } from "vue";
 import { computed } from "@vue/reactivity";
 import { Chart } from "highcharts-vue";
 
-import { getTotalPopulation } from "@/utils/apiFetch";
+import { getTotalPopulation } from "@/api/apiClient";
 
 import colors from "@/utils/colors";
 
