@@ -77,7 +77,8 @@ const chartOptions = computed(() => {
 
 <template>
   <section>
-    <Chart :options="chartOptions"></Chart>
+    <Chart v-if="checkedPrefs.length !== 0" :options="chartOptions"></Chart>
+    <p v-else>チェックするとここにグラフが表示されます</p>
   </section>
 </template>
 
