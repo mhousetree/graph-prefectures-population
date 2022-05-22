@@ -4,6 +4,8 @@ import { computed } from "@vue/reactivity";
 import axios from "axios";
 import { Chart } from "highcharts-vue";
 
+import colors from "@/utils/colors";
+
 const props = defineProps({
   checkedPrefs: {
     type: Array,
@@ -58,6 +60,7 @@ watch(
 
     series.value = checkedPrefs.value.map((prefCode) => {
       return {
+        color: colors[prefCode],
         name: props.prefNameByPrefCode[prefCode],
         data: populationByPrefCode.value[prefCode],
       };
