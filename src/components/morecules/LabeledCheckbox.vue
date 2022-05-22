@@ -19,7 +19,6 @@ defineProps({
 const emit = defineEmits(["change"]);
 
 const updateValue = (e) => {
-  console.log(e);
   emit("change", e);
 };
 </script>
