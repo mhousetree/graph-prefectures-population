@@ -7,6 +7,8 @@ import PrefectureCheckboxes from "@/components/organisms/PrefectureCheckboxes.vu
 import PopulationGraph from "@/components/organisms/PopulationGraph.vue";
 import { debugLog } from "@/utils/log";
 
+const pageTitle = "都道府県別の総人口";
+
 const prefNameByPrefCode = ref({});
 const checkedPrefs = ref([]);
 
@@ -36,11 +38,12 @@ const updateCheckedPrefs = (data) => {
 
 onMounted(async () => {
   setPrefNameByPrefCode();
+  document.title = pageTitle;
 });
 </script>
 
 <template>
-  <WithHeader>
+  <WithHeader title="都道府県別の総人口">
     <PrefectureCheckboxes
       :prefNameByPrefCode="prefNameByPrefCode"
       @updateCheckedPrefs="updateCheckedPrefs"

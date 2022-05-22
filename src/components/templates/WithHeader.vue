@@ -1,12 +1,23 @@
 <script setup>
 import RootHeader from "@/components/organisms/RootHeader.vue";
+
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+});
 </script>
 
 <template>
-  <RootHeader title="Title" />
+  <RootHeader :title="title" />
   <main>
     <slot></slot>
   </main>
 </template>
 
-<style></style>
+<style scoped lang="scss">
+main {
+  padding: 0.5rem;
+}
+</style>
