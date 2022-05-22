@@ -74,6 +74,15 @@ const chartOptions = computed(() => {
     title: { text: "人口数", align: "left" },
     yAxis: { title: { text: null } },
     series: series.value,
+    plotOptions: {
+      series: {
+        events: {
+          legendItemClick: function (e) {
+            e.preventDefault();
+          },
+        },
+      },
+    },
   };
 });
 </script>
