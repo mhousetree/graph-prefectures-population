@@ -3,8 +3,12 @@ import AlternativeCheckbox from "../atoms/AlternativeCheckbox.vue";
 // TODO: コンポーネントごと削除するか、孫コンポーネントから値を取ってくる
 // import DisplayNoneCheckbox from "../atoms/DisplayNoneCheckbox.vue";
 defineProps({
-  id: {
-    type: Number,
+  checkboxId: {
+    type: String,
+    required: true,
+  },
+  checkboxValue: {
+    type: String,
     required: true,
   },
   label: {
@@ -23,8 +27,13 @@ const updateValue = (e) => {
 <template>
   <div>
     <!-- <DisplayNoneCheckbox :id="id" /> -->
-    <input type="checkbox" :id="id" :value="id" @change="updateValue" />
-    <label :for="id">
+    <input
+      type="checkbox"
+      :id="checkboxId"
+      :value="checkboxValue"
+      @change="updateValue"
+    />
+    <label :for="checkboxId">
       <AlternativeCheckbox />
       {{ label }}
     </label>

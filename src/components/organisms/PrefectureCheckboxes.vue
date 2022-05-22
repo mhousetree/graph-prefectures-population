@@ -1,26 +1,18 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import axios from "axios";
-import store from "@/store";
+import { ref } from "vue";
 
-import { debugLog } from "@/utils/log.js";
+import LabeledCheckbox from "@/components/morecules/LabeledCheckbox.vue";
 
-import LabeledCheckbox from "../morecules/LabeledCheckbox.vue";
-
-const prefInfos = ref([]);
 const checkedPrefs = ref([]);
 
-const getPrefectures = async () => {
-  const response = await axios.get(
-    import.meta.env.VITE_API_URL + "/api/v1/prefectures",
-    {
-      headers: {
-        "X-API-KEY": import.meta.env.VITE_API_KEY,
-      },
-    }
-  );
-  return response.data.result;
-};
+defineProps({
+  prefNameByPrefCode: {
+    type: Object,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["updateCheckedPrefs"]);
 
 const updateEvent = (data) => {
   if (!checkedPrefs.value.includes(data)) {
@@ -30,24 +22,18 @@ const updateEvent = (data) => {
     checkedPrefs.value.splice(index, 1);
   }
 
-  debugLog(checkedPrefs.value);
-
-  store.setCheckedPrefs(checkedPrefs.value);
-  store.setPopulationByPrefCode(data);
+  emit("updateCheckedPrefs", checkedPrefs.value);
 };
-
-onMounted(async () => {
-  prefInfos.value = await getPrefectures();
-});
 </script>
 
 <template>
   <section>
     <LabeledCheckbox
-      v-for="prefInfo in prefInfos"
-      :key="prefInfo.prefCode"
-      :id="prefInfo.prefCode"
-      :label="prefInfo.prefName"
+      v-for="(prefName, prefCode) in prefNameByPrefCode"
+      :key="prefCode"
+      :checkboxId="prefCode"
+      :checkboxValue="prefCode"
+      :label="prefName"
       @change="updateEvent"
     />
   </section>
@@ -55,8 +41,6 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 section {
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr)); */
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;

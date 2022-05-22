@@ -4,8 +4,8 @@ export function errorLog(error) {
   }
 }
 
-export function debugLog(info) {
+export function debugLog(label, info) {
   if (import.meta.env.DEV) {
-    console.log(info);
+    console.log(label, info);
   }
 }
