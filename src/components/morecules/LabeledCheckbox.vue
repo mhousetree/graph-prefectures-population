@@ -1,28 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import AlternativeCheckbox from "../atoms/AlternativeCheckbox.vue";
 import DisplayNoneCheckbox from "../atoms/DisplayNoneCheckbox.vue";
-defineProps({
-  checkboxId: {
-    type: String,
-    required: true,
-  },
-  checkboxValue: {
-    type: String,
-    required: true,
-  },
-  labelValue: {
-    type: String,
-    required: true,
-  },
-  color: {
-    type: String,
-    required: true,
-  },
-});
 
-const emit = defineEmits(["change"]);
+defineProps<{
+  checkboxId: string;
+  checkboxValue: string;
+  labelValue: string;
+  color: string;
+}>();
 
-const updateValue = (e) => {
+const emit = defineEmits<{
+  (e: "change", value: string): void;
+}>();
+
+const updateValue = (e: string) => {
   emit("change", e);
 };
 </script>

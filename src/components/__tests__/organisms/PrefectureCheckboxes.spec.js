@@ -7,14 +7,12 @@ describe("PrefectureCheckboxes", () => {
   it("set props properly", () => {
     const wrapper = mount(PrefectureCheckboxes, {
       props: {
-        prefNameByPrefCode: {
-          1: "北海道",
-        },
+        prefNameByPrefCode: new Map([[1, "北海道"]]),
       },
     });
 
-    expect(wrapper.props("prefNameByPrefCode")).toEqual({
-      1: "北海道",
-    });
+    expect(wrapper.props("prefNameByPrefCode")).toEqual(
+      new Map([[1, "北海道"]])
+    );
   });
 });

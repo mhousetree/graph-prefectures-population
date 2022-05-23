@@ -1,5 +1,5 @@
-<script setup>
-import TopPage from "./components/pages/TopPage.vue";
+<script setup lang="ts">
+import TopPage from "@/components/pages/TopPage.vue";
 </script>
 
 <template>

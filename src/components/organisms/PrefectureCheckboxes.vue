@@ -1,25 +1,24 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 
 import LabeledCheckbox from "@/components/morecules/LabeledCheckbox.vue";
 import colors from "@/utils/colors";
 
-const checkedPrefs = ref([]);
+defineProps<{
+  prefNameByPrefCode: Map<number, string>;
+}>();
 
-defineProps({
-  prefNameByPrefCode: {
-    type: Object,
-    required: true,
-  },
-});
+const emit = defineEmits<{
+  (e: "updateCheckedPrefs", value: Array<number>): void;
+}>();
 
-const emit = defineEmits(["updateCheckedPrefs"]);
+const checkedPrefs = ref<Array<number>>([]);
 
-const updateEvent = (data) => {
-  if (!checkedPrefs.value.includes(data)) {
-    checkedPrefs.value.push(data);
+const updateEvent = (data: string) => {
+  if (!checkedPrefs.value.includes(Number(data))) {
+    checkedPrefs.value.push(Number(data));
   } else {
-    const index = checkedPrefs.value.indexOf(data);
+    const index = checkedPrefs.value.indexOf(Number(data));
     checkedPrefs.value.splice(index, 1);
   }
 
@@ -30,12 +29,12 @@ const updateEvent = (data) => {
 <template>
   <section>
     <LabeledCheckbox
-      v-for="(prefName, prefCode) in prefNameByPrefCode"
+      v-for="[prefCode, prefName] in prefNameByPrefCode"
       :key="prefCode"
-      :checkboxId="prefCode"
-      :checkboxValue="prefCode"
+      :checkboxId="String(prefCode)"
+      :checkboxValue="String(prefCode)"
       :labelValue="prefName"
-      :color="colors[prefCode]"
+      :color="colors.has(prefCode) ? colors.get(prefCode)! : '#eee'"
       @change="updateEvent"
     />
   </section>
