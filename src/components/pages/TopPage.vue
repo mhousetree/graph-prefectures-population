@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 
 import WithHeader from "@/components/templates/WithHeader.vue";
@@ -6,22 +6,27 @@ import PrefectureCheckboxes from "@/components/organisms/PrefectureCheckboxes.vu
 import PopulationGraph from "@/components/organisms/PopulationGraph.vue";
 
 import { getPrefectures } from "@/api/apiClient";
-import { debugLog } from "@/utils/log";
+
+type Prefecture = {
+  prefCode: number;
+  prefName: string;
+};
 
 const pageTitle = "都道府県別の総人口";
 
-const prefNameByPrefCode = ref({});
-const checkedPrefs = ref([]);
+const prefNameByPrefCode = ref(new Map<number, string>());
+const checkedPrefs = ref<Array<number>>([]);
 
 const setPrefNameByPrefCode = async () => {
   const response = await getPrefectures();
-  response.forEach((e) => {
-    prefNameByPrefCode.value[String(e.prefCode)] = e.prefName;
+  response.forEach((e: Prefecture) => {
+    prefNameByPrefCode.value.set(e.prefCode, e.prefName);
+    // prefNameByPrefCode.value[String(e.prefCode)] = e.prefName;
   });
-  debugLog("set prefNameByPrefCode: ", prefNameByPrefCode.value);
+  console.log("set prefNameByPrefCode: ", prefNameByPrefCode.value);
 };
 
-const updateCheckedPrefs = (data) => {
+const updateCheckedPrefs = (data: Array<number>) => {
   checkedPrefs.value = data;
 };
 

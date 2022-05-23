@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, toRefs, watch } from "vue";
 import { computed } from "@vue/reactivity";
 import { Chart } from "highcharts-vue";
@@ -7,33 +7,30 @@ import { getTotalPopulation } from "@/api/apiClient";
 
 import colors from "@/utils/colors";
 
-const props = defineProps({
-  checkedPrefs: {
-    type: Array,
-    required: true,
-  },
-  prefNameByPrefCode: {
-    type: Object,
-    required: true,
-  },
-});
+type SeriesElement = {
+  color?: string;
+  name?: string;
+  data?: Array<Array<number>>;
+};
 
-const populationByPrefCode = ref({});
-const series = ref([]);
+const props = defineProps<{
+  checkedPrefs: Array<number>;
+  prefNameByPrefCode: Map<number, string>;
+}>();
+
+const populationByPrefCode = ref(new Map<number, Array<Array<number>>>());
+const series = ref(new Array<SeriesElement>());
 
 const { checkedPrefs } = toRefs(props);
 
 const updatePopulationByPrefCode = async () => {
   for (const prefCode of checkedPrefs.value) {
-    const hasPopulationData = Object.prototype.hasOwnProperty.call(
-      populationByPrefCode.value,
-      prefCode
-    );
+    const hasPopulationData = populationByPrefCode.value.has(prefCode);
 
     if (!hasPopulationData) {
       const population = await getTotalPopulation(prefCode);
       const data = population.map((x) => [x.year, x.value]);
-      populationByPrefCode.value[prefCode] = data;
+      populationByPrefCode.value.set(prefCode, data);
     }
   }
 };
@@ -45,9 +42,9 @@ watch(
 
     series.value = checkedPrefs.value.map((prefCode) => {
       return {
-        color: colors[prefCode],
-        name: props.prefNameByPrefCode[prefCode],
-        data: populationByPrefCode.value[prefCode],
+        color: colors.get(prefCode),
+        name: props.prefNameByPrefCode.get(prefCode),
+        data: populationByPrefCode.value.get(prefCode),
       };
     });
   },
@@ -62,7 +59,8 @@ const chartOptions = computed(() => {
     plotOptions: {
       series: {
         events: {
-          legendItemClick: function (e) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          legendItemClick: function (e: any) {
             e.preventDefault();
           },
         },

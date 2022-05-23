@@ -1,11 +1,8 @@
-<script setup>
-import CenteredH1 from "../atoms/CenteredH1.vue";
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-});
+<script setup lang="ts">
+import CenteredH1 from "@/components/atoms/CenteredH1.vue";
+defineProps<{
+  title: string;
+}>();
 </script>
 
 <template>

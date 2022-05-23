@@ -1,19 +1,17 @@
-<script setup>
-defineProps({
-  checkboxId: {
-    type: String,
-    required: true,
-  },
-  checkboxValue: {
-    type: String,
-    required: true,
-  },
-});
+<script setup lang="ts">
+defineProps<{
+  checkboxId: string;
+  checkboxValue: string;
+}>();
 
-const emit = defineEmits(["change"]);
+const emit = defineEmits<{
+  (e: "change", value: string): void;
+}>();
 
-const updateValue = (e) => {
-  emit("change", e.target.value);
+const updateValue = (e: Event) => {
+  const target = e.target as HTMLInputElement;
+
+  emit("change", target.value);
 };
 </script>
 
