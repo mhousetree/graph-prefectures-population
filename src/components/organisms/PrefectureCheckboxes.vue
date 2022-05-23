@@ -16,12 +16,19 @@ const emit = defineEmits<{
 const checkedPrefs = ref<Array<number>>([]);
 
 const updateEvent = (data: string) => {
-  if (!checkedPrefs.value.includes(Number(data))) {
+  const checked = !checkedPrefs.value.includes(Number(data));
+  if (checked) {
     checkedPrefs.value.push(Number(data));
   } else {
     const index = checkedPrefs.value.indexOf(Number(data));
     checkedPrefs.value.splice(index, 1);
   }
+
+  const target = document.getElementById(data);
+  const targetPc = document.getElementById("pc" + data);
+
+  target.checked = checked;
+  targetPc.checked = checked;
 
   emit("updateCheckedPrefs", checkedPrefs.value);
 };
