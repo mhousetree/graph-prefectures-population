@@ -22,7 +22,6 @@ const setPrefNameByPrefCode = async () => {
   response.forEach((e: Prefecture) => {
     prefNameByPrefCode.value.set(e.prefCode, e.prefName);
   });
-  console.log("set prefNameByPrefCode: ", prefNameByPrefCode.value);
 };
 
 const updateCheckedPrefs = (data: Array<number>) => {
