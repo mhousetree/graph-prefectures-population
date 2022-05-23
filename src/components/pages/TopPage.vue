@@ -21,7 +21,6 @@ const setPrefNameByPrefCode = async () => {
   const response = await getPrefectures();
   response.forEach((e: Prefecture) => {
     prefNameByPrefCode.value.set(e.prefCode, e.prefName);
-    // prefNameByPrefCode.value[String(e.prefCode)] = e.prefName;
   });
   console.log("set prefNameByPrefCode: ", prefNameByPrefCode.value);
 };
