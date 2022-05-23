@@ -5,7 +5,7 @@ import { Chart } from "highcharts-vue";
 
 import { getTotalPopulation } from "@/api/apiClient";
 
-import colors from "@/utils/colors";
+import colors from "@/definitions/colors";
 
 type SeriesElement = {
   color?: string;
