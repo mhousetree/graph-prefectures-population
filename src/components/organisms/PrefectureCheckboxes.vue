@@ -34,7 +34,7 @@ const updateEvent = (data) => {
       :key="prefCode"
       :checkboxId="prefCode"
       :checkboxValue="prefCode"
-      :label="prefName"
+      :labelValue="prefName"
       :color="colors[prefCode]"
       @change="updateEvent"
     />

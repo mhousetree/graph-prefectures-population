@@ -10,7 +10,7 @@ defineProps({
     type: String,
     required: true,
   },
-  label: {
+  labelValue: {
     type: String,
     required: true,
   },
@@ -37,7 +37,7 @@ const updateValue = (e) => {
     <label :for="checkboxId">
       <AlternativeCheckbox />
       <span>
-        {{ label }}
+        {{ labelValue }}
       </span>
     </label>
   </div>
