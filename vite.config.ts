@@ -15,7 +15,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/scss/_mixin";`,
+        additionalData: `@import "@/assets/scss/_mediaQuery";`,
       },
     },
   },
