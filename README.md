@@ -1,6 +1,6 @@
 # graph-prefectures-population
 
-コーディングの過程で発生した推しポイント・迷ったポイントは `NOTE.md` にまとめました。
+推しポイント・コーディング中迷ったポイントは `NOTE.md` にまとめました。
 
 ## Project Setup
 
