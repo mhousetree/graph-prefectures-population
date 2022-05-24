@@ -6,9 +6,8 @@ import TopPage from "@/components/pages/TopPage.vue";
   <component :is="TopPage" />
 </template>
 
-<style>
-@import "./assets/base.css";
-
+<style lang="scss">
+@import "@/assets/scss/_base.scss";
 #app {
   max-width: 1280px;
   margin: 0 auto;
