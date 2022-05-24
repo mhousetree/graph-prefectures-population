@@ -12,7 +12,7 @@ defineProps<{
 
 <style scoped lang="scss">
 h1 {
-  background-color: #ccc;
+  background-color: var(--color-background-mute);
   font-size: 1.5rem;
   line-height: 2;
   text-align: center;

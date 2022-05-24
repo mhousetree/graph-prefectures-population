@@ -43,8 +43,8 @@ div {
 label {
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  padding: 0 0.5em;
+  gap: 0.3em;
+  padding: 0 0.3em;
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: 0.2s;

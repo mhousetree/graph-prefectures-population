@@ -86,7 +86,7 @@ section {
 p.graph-placeholder {
   text-align: center;
   padding: 3rem 0;
-  background-color: #eee;
+  background-color: var(--color-background-mute);
   border-radius: 0.5rem;
   border: 1px dashed #ccc;
 }
