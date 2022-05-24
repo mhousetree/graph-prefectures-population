@@ -1,5 +1,7 @@
 # graph-prefectures-population
 
+<img alt="screenshot SP" src="https://user-images.githubusercontent.com/74708840/170003573-7adf31d1-a98d-4a12-95e3-156f2477ccef.png" height="400px"> <img alt="screenshot PC" src="https://user-images.githubusercontent.com/74708840/170003596-ee8a0aef-050a-48dd-9565-67200bcad919.png" height="400px">
+
 推しポイント・コーディング中迷ったポイントは `NOTE.md` にまとめました。
 
 ## Project Setup
