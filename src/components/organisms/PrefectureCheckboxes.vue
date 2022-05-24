@@ -24,8 +24,8 @@ const updateEvent = (data: string) => {
     checkedPrefs.value.splice(index, 1);
   }
 
-  const target = document.getElementById(data);
-  const targetPc = document.getElementById("pc" + data);
+  const target = document.getElementById(data) as HTMLInputElement;
+  const targetPc = document.getElementById("pc" + data) as HTMLInputElement;
 
   target.checked = checked;
   targetPc.checked = checked;
@@ -59,7 +59,7 @@ const updateEvent = (data: string) => {
           :key="prefCode"
           :checkboxId="'pc' + String(prefCode)"
           :checkboxValue="String(prefCode)"
-          :labelValue="prefNameByPrefCode.get(prefCode)"
+          :labelValue="prefNameByPrefCode.get(prefCode)!"
           :color="colors.has(prefCode) ? colors.get(prefCode)! : '#eee'"
           @change="updateEvent"
         />
