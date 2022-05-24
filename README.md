@@ -4,7 +4,7 @@
 
 デプロイしたアプリケーションは<a href="https://mhousetree-graph-prefectures-population.netlify.app/" target="_blank" rel="noopener">こちら</a>
 
-推しポイント・コーディング中迷ったポイントは `NOTE.md` にまとめました。
+推しポイント・コーディング中迷ったポイントは [NOTE.md](./NOTE.md) にまとめました。
 
 ## Project Setup
 
