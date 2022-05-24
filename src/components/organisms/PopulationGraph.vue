@@ -2,10 +2,14 @@
 import { ref, toRefs, watch } from "vue";
 import { computed } from "@vue/reactivity";
 import { Chart } from "highcharts-vue";
+import Highcharts from "highcharts";
+import accessibility from "highcharts/modules/accessibility";
 
 import { getTotalPopulation } from "@/api/apiClient";
 
 import colors from "@/definitions/colors";
+
+accessibility(Highcharts);
 
 type SeriesElement = {
   color?: string;
