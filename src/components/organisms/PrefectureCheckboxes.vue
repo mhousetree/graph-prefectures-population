@@ -3,7 +3,6 @@ import { ref } from "vue";
 
 import LabeledCheckbox from "@/components/morecules/LabeledCheckbox.vue";
 import colors from "@/definitions/colors";
-import regions from "@/definitions/regions";
 
 defineProps<{
   prefNameByPrefCode: Map<number, string>;
